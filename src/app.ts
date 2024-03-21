@@ -25,7 +25,7 @@ app.use(fileUpload()); // Agrega esta línea para configurar express-fileupload
 app.use('/api/v1/user', userRouter);
 
 // Configura el puerto
-const port = 5432 ;
+const port = 3006 ;
 app.listen(port, () => {
     console.log(`Corriendo en el puerto ${port}`);
 });
