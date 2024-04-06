@@ -7,14 +7,16 @@ export class User {
     public phone: number;
     public email: string;
     public birthday: string;
+    public password: string;
 
-    constructor(id:number,name: string, lastname: string,phone: number,email: string,birthday: string) {
+    constructor(id:number,name: string, lastname: string,phone: number,email: string,birthday: string, password: string) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.phone = phone;
         this.email = email;
         this.birthday = birthday;
+        this.password = password;
     }
 
 }
