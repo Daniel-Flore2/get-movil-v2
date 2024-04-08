@@ -5,6 +5,7 @@ import { Signale } from 'signale';
 import fileUpload from 'express-fileupload'; // Importa express-fileupload
 import dotenv from "dotenv";
 import {    userRouter } from "../src/store/User/infraestructure/userRouter";
+import { offerRouter } from "./store/User/infraestructure/offerRouter";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(fileUpload()); // Agrega esta línea para configurar express-fileupload
 
 // Configura las rutas
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/offer', offerRouter);
 
 // Configura el puerto
 const port = 3006 ;

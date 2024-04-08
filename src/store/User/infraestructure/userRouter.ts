@@ -7,4 +7,4 @@ export const userRouter = express.Router();
 userRouter.get("/:id", getUserController.getByPublic.bind(getUserController));
 
 // Ruta para registrar un nuevo usuario
-userRouter.post("/", registerUserController.register.bind(registerUserController));
+userRouter.post("/create-user", registerUserController.register.bind(registerUserController));
