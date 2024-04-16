@@ -12,20 +12,13 @@ import { RegisterOfferController } from "./controllers/registerOfferController";
 import { GetofferController } from "./controllers/getOfferController";
 import { DeleteOfferController } from "./controllers/deleteOfferController";
 import { GetoffersUseCase } from "../appliaction/getOffersUseCase";
-export {
-  registerOfferController,
-  getOfferController,
-  deleteOfferController
-};
-
-
-
+import { GetUsersUseCase } from "../appliaction/getUsersUseCase";
 
 // Repositorios y casos de uso para usuarios
 const mysqlUserRepository = new MysqlUserRepository();
 const getUsersUseCase = new GetUserUseCase(mysqlUserRepository);
 export const getUserController = new GetUserController(getUsersUseCase);
-export const registerUserUseCase = new RegisterUserUseCase(mysqlUserRepository);
+const registerUserUseCase = new RegisterUserUseCase(mysqlUserRepository);
 const registerUserController = new RegisterUserController(registerUserUseCase);
 
 // Repositorios y casos de uso para ofertas
@@ -39,3 +32,10 @@ const getAllOffers = new GetOfferUseCase(mysqlOfferRepository);
 //const getAllOffersController = new GetOffersController(getOffersUseCase);
 const deleteOfferUseCase = new DeleteOfferUseCase(mysqlOfferRepository);
 const deleteOfferController = new DeleteOfferController(deleteOfferUseCase);
+
+// Exportar controladores necesarios
+export {
+  registerOfferController,
+  getOfferController,
+  deleteOfferController
+};
