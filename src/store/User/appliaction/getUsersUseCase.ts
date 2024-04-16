@@ -1,18 +1,16 @@
 import { User } from "../domain/user";
-import { userRepository } from "../domain/userRepository";
+import { UserRepository } from "../domain/userRepository";
 
-export class GetUserUseCase {
-    private readonly userRepository: userRepository;
 
-    constructor(userRepository: userRepository) {
-        this.userRepository = userRepository;
-    }
+export class GetUsersUseCase{
+    constructor(readonly userRepository: UserRepository){}
 
-    async getUser(id: number): Promise<User | null> {
+    async run():Promise<User[] | null>{
         try {
-            return await this.userRepository.getUser(id);
+            const getAll = await this.userRepository.getUsers();
+            return getAll;
+            
         } catch (error) {
-            console.error("Error getting user:", error);
             return null;
         }
     }

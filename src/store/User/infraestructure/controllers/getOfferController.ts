@@ -3,6 +3,7 @@ import { GetOfferUseCase } from "../../appliaction/getOfferUseCase";
 
 export class GetofferController {
     getOfferUseCase: GetOfferUseCase;
+    getAll: any;
 
     constructor(readonly getoffersUseCase: GetOfferUseCase) {
         this.getOfferUseCase = getoffersUseCase;

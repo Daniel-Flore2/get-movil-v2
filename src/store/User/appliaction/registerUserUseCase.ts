@@ -1,12 +1,12 @@
 import { User } from "../domain/user";
-import { userRepository } from "../domain/userRepository";
+import { UserRepository } from "../domain/userRepository";
 import { v4 as uuid } from "uuid";
 
 
 
 
 export class RegisterUserUseCase {
-    constructor(readonly userRepository: userRepository) {}
+    constructor(readonly userRepository: UserRepository) {}
 
     async run(user: User): Promise<User | null> {
 
@@ -23,7 +23,7 @@ export class RegisterUserUseCase {
 
             };
 
-            return await this.userRepository.registerUser(newUser);
+            return await this.userRepository.registeruser(newUser);
         } catch (error) {
             return null;
         }

@@ -1,8 +1,11 @@
 import { query } from "../../../database/mysql";
 import { User } from "../domain/user";
-import { userRepository } from "../domain/userRepository";
+import { UserRepository } from "../domain/userRepository";
 
-export class MysqlUserRepository implements userRepository {
+export class MysqlUserRepository implements UserRepository {
+    registeruser(user: User): Promise<User | null> {
+        throw new Error("Method not implemented.");
+    }
     async getUser(id: number): Promise<User | null> {
         try {
             const sql = "SELECT * FROM user WHERE id = ?";
@@ -43,6 +46,34 @@ export class MysqlUserRepository implements userRepository {
         } catch (error) {
             console.error('Error al registrar el usuario:', error);
             throw new Error('Error al registrar el usuario');
+        }
+    }
+    async getUsers(): Promise<User[] | null> {
+        try {
+            const sql = "SELECT * FROM user";
+            const [rows]: any = await query(sql);
+
+            if (!Array.isArray(rows) || rows.length === 0) {
+                return null; // Si no se encontró ningún usuario, retornar null
+            }
+
+            const users = rows.map((row: any) => {
+                return new User(
+                    row.id,
+                    row.name,
+                    row.lastname,
+                    row.phone,
+                    row.email,
+                    row.birthday,
+                    row.password
+                );
+            });
+
+            return users;
+
+        } catch (error) {
+            console.error('Error al obtener los usuarios:', error);
+            throw new Error('Error al obtener los usuarios');
         }
     }
 }

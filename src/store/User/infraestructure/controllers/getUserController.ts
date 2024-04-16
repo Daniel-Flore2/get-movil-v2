@@ -1,8 +1,9 @@
 import { Request,Response } from "express";
-import { GetUserUseCase } from "../../appliaction/getUsersUseCase";
+import { GetUserUseCase } from "../../appliaction/getUserUseCase";
 
 export class GetUserController {
     getUserUseCase: GetUserUseCase;
+    getAll: any;
 
     constructor(readonly getUsersUseCase: GetUserUseCase) {
         this.getUserUseCase = getUsersUseCase;
