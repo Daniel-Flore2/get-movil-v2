@@ -2,9 +2,10 @@ import { Request, Response } from "express";
 import { GetUsersUseCase } from "../../appliaction/getUsersUseCase";
 
 export class GetUsersController {
+
     constructor(readonly getUsersUseCase: GetUsersUseCase) {}
 
-    async getAllUsers(req: Request, res: Response) {
+    async getUsers(req: Request, res: Response) {
         try {
             const getAll = await this.getUsersUseCase.run();
 

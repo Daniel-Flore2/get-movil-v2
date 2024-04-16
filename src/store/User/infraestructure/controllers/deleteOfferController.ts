@@ -2,10 +2,9 @@ import { Request, Response } from "express";
 import { DeleteOfferUseCase } from "../../appliaction/deleteOfferUseCase";
 
 export class DeleteOfferController {
-    delete: any;
     constructor(private readonly deleteOfferUseCase: DeleteOfferUseCase) {}
 
-    async deleteOffer(req: Request, res: Response) {
+    async delete(req: Request, res: Response) {
         try {
             const { id } = req.params;
             const offerId = parseInt(id);
