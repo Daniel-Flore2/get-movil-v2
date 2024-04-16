@@ -5,7 +5,7 @@ import { Offer } from "../../domain/offer";
 export class GetOffersController {
     constructor(readonly getOffersUseCase: GetoffersUseCase) {}
 
-    async getAllOffers(req: Request, res: Response) {
+    async getOffers(req: Request, res: Response) {
         try {
             const getAll = await this.getOffersUseCase.run();
 
@@ -23,6 +23,7 @@ export class GetOffersController {
                 });
             }
         } catch (error) {
+            console.error("Error in getOffersController:", error); // Agrega este console.log para imprimir el error
             return res.status(500).send({
                 status: "error",
                 message: "An error occurred while listing the offers."

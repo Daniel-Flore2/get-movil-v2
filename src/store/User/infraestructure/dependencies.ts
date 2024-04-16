@@ -28,8 +28,8 @@ const registerOfferController = new RegisterOfferController(registerOfferUseCase
 const getOfferUseCase = new GetOfferUseCase(mysqlOfferRepository);
 const getOfferController = new GetofferController(getOfferUseCase);
 const getAllOffers = new GetOfferUseCase(mysqlOfferRepository);
-//const getOffersUseCase = new GetoffersUseCase(mysqlOfferRepository); // Crear instancia de GetoffersUseCase
-//const getAllOffersController = new GetOffersController(getOffersUseCase);
+const getOffersUseCase = new GetoffersUseCase(mysqlOfferRepository); // Crear instancia de GetoffersUseCase
+const getOffersController = new GetOffersController(getOffersUseCase);
 const deleteOfferUseCase = new DeleteOfferUseCase(mysqlOfferRepository);
 const deleteOfferController = new DeleteOfferController(deleteOfferUseCase);
 
@@ -37,5 +37,6 @@ const deleteOfferController = new DeleteOfferController(deleteOfferUseCase);
 export {
   registerOfferController,
   getOfferController,
-  deleteOfferController
+  deleteOfferController,
+  getOffersController
 };
